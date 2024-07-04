@@ -1,0 +1,7 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  background-image: url('./assets/gradient-liquid-abstract-background//5205474.jpg');
+  background-size: cover;
+  background-position: center;
+  font-family: Arial, sans-serif;
+}

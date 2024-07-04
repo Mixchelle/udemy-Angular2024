@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 instructions">
+      <h3>Instructions</h3>
+      <ol>
+        <li>Add a button which says 'Display Details'</li>
+        <li>Add a paragraph with any content of your choice (e.g. 'Secret Password = tuna')</li>
+        <li>Toggle the displaying of that paragraph with the button created in the first step</li>
+        <li>Log all button clicks in an array and output that array below the secret paragraph (maybe log a timestamp or simply an incrementing number)</li>
+        <li>Starting at the 5th log item, give all future log items a blue background (via ngStyle) and white color (ngClass)</li>
+      </ol>
+    </div>
+    <div>
+    </div>
+    <div class="col-xs-12 card1">
+      <div class="input-group">
+        <label class="label">
+          <span class="icon">
+            <svg
+              class="w-6 h-6 text-gray-800 dark:text-white"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="30"
+              height="30"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke="currentColor"
+                stroke-width="1.25"
+                d="M7 17v1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+              ></path>
+            </svg>
+          </span>
+          <input
+            type="text"
+            class="input"
+            placeholder="Enter name"
+            autocomplete="off"
+            [(ngModel)]="userName"
+          />
+        </label>
+      </div>
+      <button (click)="toggleDetails()" class="btn-53">
+        <div class="original">     
+          Display Details
+        </div>
+        <div class="letters">
+          <span>D</span>
+          <span>I</span>
+          <span>S</span>
+          <span>P</span>
+          <span>L</span>
+          <span>A</span>
+          <span>Y</span>
+          <span> </span> <!-- Espaço adicional -->
+          <span>D</span>
+          <span>E</span>
+          <span>T</span>
+          <span>A</span>
+          <span>I</span>
+          <span>L</span>
+          <span>S</span>
+        </div>
+      </button>
+    </div>
+    <div *ngIf="showDetails" class="col-xs-12 instructions">
+      <div  class="card">
+        <p>Why don't scientists trust atoms? Because they make up everything!</p>
+      </div>
+    </div>
+    <div *ngIf="logArray.length > 0" class="col-xs-12 instructions">
+      <ul class="card">
+        <li *ngFor="let log of logArray; let i = index" [ngStyle]="{'background-color': i >= 4 ? 'blue' : 'transparent'}" [ngClass]="{'white-text': i >= 4}">
+          {{ log }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
